@@ -1,0 +1,3 @@
+User-agent: *
+# You shouldn't be looking here, Sellsword!
+Disallow: /secret_vault

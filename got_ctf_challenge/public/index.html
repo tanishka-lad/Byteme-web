@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Iron Bank | Braavos</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Optional: Add Google Font for Cinzel -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<!-- ... rest of your HTML ... -->
+<body>
+    
+    <div class="container">
+        <header>
+            <h1>THE IRON BANK</h1>
+            <p class="subtitle">Braavos Terminal v4.0.1</p>
+        </header>
+
+        <main class="vault-interface">
+            <div class="status-box">
+                <h3>Identity Verified: <span id="user-role">Detecting...</span></h3>
+                <p id="access-msg">Scanning session tokens...</p>
+            </div>
+
+            <div class="actions">
+                <button onclick="location.href='/treasury'" class="btn-gold">Enter the Treasury</button>
+            </div>
+        </main>
+
+        <footer>
+            <p><i>“The Iron Bank will have its due.”</i></p>
+        </footer>
+    </div>
+
+    <script>
+        // Script to read the 'role' cookie
+        const getCookie = (name) => {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+            return 'commoner';
+        };
+
+        const role = getCookie('role');
+        document.getElementById('user-role').innerText = role.replace('_', ' ');
+        
+        if(role === 'Lord_Treasurer') {
+            document.getElementById('access-msg').innerText = "Welcome, My Lord. The gold awaits.";
+            document.getElementById('user-role').style.color = "#d4af37";
+        } else {
+            document.getElementById('access-msg').innerText = "Access Restricted: Sellswords and Commoners are not permitted.";
+            document.getElementById('user-role').style.color = "#ff4500";
+        }
+    </script>
+
+    
+</body>
+</html>

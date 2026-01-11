@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["ledger_v2.js"],
+  "names": ["SALT", "generateChecksum"],
+  "mappings": "AAAA,MAAMA,IAAI,GAAG,mBAAmB",
+  "sourcesContent": ["const SALT = \"HEAR_ME_ROAR_2024\";\nfunction generateChecksum(u, r, d) {\n return md5(u + r + d + SALT).substring(0, 8);\n}"]
+}
