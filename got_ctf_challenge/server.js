@@ -24,8 +24,9 @@ app.get('/secret_vault', (req, res) => {
     if (userRole === 'Lord_Treasurer') {
         res.send("<h1>Success!</h1><p>The Iron Throne is yours. Flag: <b>ByteMe{Easier_Than_The_Long_Night}</b></p>");
     } else {
-        res.send(<h1>Access Denied</h1><p>Your current role is '${userRole}'. Only the 'Lord_Treasurer' can enter.</p>);
+        res.send(`<h1>Access Denied</h1><p>Your current role is '${userRole}'. Only the 'Lord_Treasurer' can enter.</p>`);
     }
 });
 
 app.listen(3000, () => console.log('Easy CTF running on http://localhost:3000'));
+
